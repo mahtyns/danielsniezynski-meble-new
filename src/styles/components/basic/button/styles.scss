@@ -1,0 +1,36 @@
+.button {
+    padding: $size-sm $size-md;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: $font-base;
+    font-family: $font-accent;
+    border: none;
+    border-radius: $size-xs;
+    cursor: pointer;
+
+    &--main {
+        @include phone-icon;
+        background-color: $blue-primary;
+        color: $white;
+        transition: all 0.5s ease-in-out;
+
+        a {
+            color: $white;
+            text-decoration: none;
+        }
+
+        &:hover {
+            background-color: $blue-hover;
+        }
+    }
+
+    &--secondary {
+        border: solid $size-2xs $blue-hover;
+
+        &:hover {
+            background-color: $blue-light;
+        }
+    }
+
+
+}

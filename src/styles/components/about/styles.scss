@@ -1,0 +1,13 @@
+.about {
+    &__description {
+        font-size: $font-sm;
+        line-height: 1.5;
+        font-weight: 300;
+    }
+
+    &__wrapper {
+        background-color: $blue-light;
+        padding: $space-m;
+        border-radius: $size-md;
+    }
+}

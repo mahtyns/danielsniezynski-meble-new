@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Intro from "../components/Intro.astro";
+import About from "../components/About.astro";
+import Services from "../components/Services.astro";
+import Gallery from "../components/Gallery.astro";
+import { seo } from "../data/seo.json";
+import "../styles/styles.scss";
+---
+
+<Layout title={seo.title}>
+	<main>
+		<Hero />
+		<Intro />
+		<Gallery />
+		<About />
+		<Services />
+	</main>
+</Layout>

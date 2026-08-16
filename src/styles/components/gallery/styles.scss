@@ -1,0 +1,102 @@
+.gallery {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @include breakpoint-md {
+            padding: $space-xl 0;
+        }
+    }
+
+    &__slider {
+        width: 100%;
+        margin-bottom: $space-l;
+
+        &-inner {
+            display: flex;
+            align-items: center;
+            gap: $space-xs;
+        }
+
+        &-viewport {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        &-track {
+            display: flex;
+            transition: transform 0.4s ease;
+
+            &--no-transition {
+                transition: none;
+            }
+        }
+
+
+        &-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            overflow: hidden;
+        }
+
+        &-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        &-btn {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $size-lg;
+            height: $size-lg;
+            border-radius: 50%;
+            border: 1px solid $gray-dark;
+            background: transparent;
+            color: $black;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+
+            &:hover:not(:disabled) {
+                border-color: $blue-primary;
+                background: rgba($blue-primary, 0.06);
+                color: $blue-primary;
+            }
+
+            &:disabled {
+                opacity: 0.3;
+                cursor: not-allowed;
+            }
+        }
+
+        &-dots {
+            display: flex;
+            justify-content: center;
+            gap: $space-xs;
+            margin-top: $space-s;
+        }
+
+        &-dot {
+            width: $size-2xs;
+            height: $size-2xs;
+            border-radius: 50%;
+            border: none;
+            background: rgba($gray-dark, 0.35);
+            padding: 0;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+
+            &--active {
+                background: $blue-primary;
+                transform: scale(1.4);
+            }
+        }
+    }
+}

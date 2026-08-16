@@ -1,0 +1,89 @@
+.services {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: $space-l;
+        width: 100%;
+
+        @include breakpoint-md {
+            flex-direction: row;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            border-radius: $size-2xs;
+            overflow: hidden;
+            background: $white;
+            box-shadow: 0 2px 12px rgba($black, 0.08);
+            text-align: left;
+
+            &__img {
+                display: block;
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+
+                @include breakpoint-lg {
+                    height: 280px;
+                }
+            }
+
+            &__content {
+                display: flex;
+                flex-direction: column;
+                gap: $space-xs;
+                padding: $space-m;
+            }
+
+            &__items {
+                display: flex;
+                flex-direction: column;
+                gap: $space-xxs;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                &-item {
+                    padding-left: $space-m;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0.65em;
+                        width: $size-2xs;
+                        height: $size-2xs;
+                        border-radius: 50%;
+                        background: $blue-primary;
+                    }
+                }
+            }
+        }
+    }
+
+    &__reveal {
+        opacity: 0;
+        transform: translateY($space-m);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+
+        &--visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &__text {
+        text-align: center;
+        width: 80%;
+        margin: $space-m auto;
+    }
+}

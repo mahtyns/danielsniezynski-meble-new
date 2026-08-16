@@ -1,0 +1,35 @@
+{
+    "services": {
+        "title": "Nasza oferta",
+        "subtitle": "Zabudowy meblowe i zabudowy drewniane",
+        "text": "Wykonujemy także renowacje wszelakich drewnianych konstrukcji, blatów, elewacji, tarasów itd.",
+        "furniture": {
+            "title": "Zabudowy meblowe",
+            "items": [
+                "Kuchnie",
+                "Szafy",
+                "Garderoby",
+                "Zabudowy biurowe",
+                "Zabudowy nietypowe",
+                "Blaty kuchenne drewniane",
+                "Blaty kuchenne kompaktowe (HPL)",
+                "Stoły Drewniane",
+                "Stoły z blatów kompaktowych"
+            ]
+        },
+        "terraces": {
+            "title": "Zabudowy drewniane",
+            "items": [
+                "Altany",
+                "Drewutnie",
+                "Wiaty",
+                "Tarasy drewniane",
+                "Tarasy kompozytowe",
+                "Elewacje drewniane",
+                "Ogrodzenia sztachetowe",
+                "Indywidualne projekty",
+                "Ogródki Letnie"
+            ]
+        }
+    }
+}

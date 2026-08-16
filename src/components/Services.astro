@@ -1,0 +1,85 @@
+---
+import { services } from "../data/services.json";
+---
+
+<section id="services" class="services">
+    <div class="services__wrapper container">
+        <h2 class="title-h2 services__title services__reveal">
+            {services.title}
+        </h2>
+        <h3 class="title-h3 services__subtitle services__reveal">
+            {services.subtitle}
+        </h3>
+
+        <div class="services__list">
+            <div class="services__list__item services__reveal">
+                <img
+                    class="services__list__item__img"
+                    src="/images/gallery-slider/img1.jpg"
+                    alt={services.furniture.title}
+                    loading="lazy"
+                />
+                <div class="services__list__item__content">
+                    <div class="services__list__item__title">
+                        {services.furniture.title}
+                    </div>
+                    <ul class="services__list__item__items">
+                        {
+                            services.furniture.items.map((item) => (
+                                <li class="services__list__item__items-item">
+                                    {item}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="services__list__item services__reveal">
+                <img
+                    class="services__list__item__img"
+                    src="/images/gallery-slider/img2.jpg"
+                    alt={services.terraces.title}
+                    loading="lazy"
+                />
+                <div class="services__list__item__content">
+                    <div class="services__list__item__title">
+                        {services.terraces.title}
+                    </div>
+                    <ul class="services__list__item__items">
+                        {
+                            services.terraces.items.map((item) => (
+                                <li class="services__list__item__items-item">
+                                    {item}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <p class="services__text services__reveal">{services.text}</p>
+        <button class="button button--main services__reveal"
+            ><a href="tel:+48737494150">Poproś o ofertę</a></button
+        >
+    </div>
+</section>
+
+<script>
+    const revealEls = document.querySelectorAll(".services__reveal");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("services__reveal--visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.15 },
+    );
+
+    revealEls.forEach((el) => observer.observe(el));
+</script>

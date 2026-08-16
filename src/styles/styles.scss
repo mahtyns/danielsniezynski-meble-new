@@ -1,0 +1,92 @@
+@import './variables';
+@import './mixins';
+@import './breakpoints';
+
+@import './components/hero/styles.scss';
+@import './components/intro/styles.scss';
+@import './components/about/styles.scss';
+@import './components/footer/styles.scss';
+@import './components/navbar/styles.scss';
+@import './components/gallery/styles.scss';
+@import './components/services/styles.scss';
+
+
+@import './components/basic/button/styles.scss';
+
+body {
+    background-color: $white;
+    margin: 0;
+
+}
+
+* {
+    font-family: $font-main;
+    box-sizing: border-box;
+}
+
+section {
+    padding: $space-m $space-s;
+
+    @include breakpoint-md {
+        padding: $space-xl 0;
+    }
+}
+
+.container {
+    margin: 0 auto;
+
+    @include breakpoint-md {
+        max-width: $screen-lg;
+    }
+
+    @include breakpoint-lg {
+        max-width: $screen-xl;
+    }
+}
+
+.title-h1 {
+    font-family: $font-accent;
+    font-weight: 700;
+    font-size: $font-lg;
+
+    @include breakpoint-md {
+        font-size: $font-xl;
+    }
+}
+
+.title-h2 {
+    color: $blue-primary;
+    font-family: $font-accent;
+    font-size: $font-sm;
+
+    @include breakpoint-md {
+        font-size: $font-md;
+    }
+}
+
+.title-h3 {
+    text-transform: uppercase;
+    font-family: $font-accent;
+    font-size: 36px;
+    margin: 0;
+    border-bottom: solid $size-2xs $blue-primary;
+    padding-bottom: $space-xs;
+    width: fit-content;
+    font-size: $font-md;
+
+    @include breakpoint-md {
+        font-size: $font-lg;
+    }
+}
+
+.title-h2,
+.title-h3 {
+    text-align: center;
+    margin: 0 auto $space-xs;
+    width: fit-content;
+
+    @include breakpoint-md {
+        text-align: left;
+        margin: 0 0 $space-s;
+    }
+}

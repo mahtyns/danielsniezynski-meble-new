@@ -1,0 +1,115 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: $space-s;
+    border-bottom: solid $blue-primary $size-min;
+
+    @include breakpoint-md {
+        padding: $space-s $space-xxl;
+    }
+
+    &__wrapper {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__logo {
+        font-size: 24px;
+        font-family: $font-accent;
+        font-weight: 700;
+
+        span {
+            color: $blue-primary;
+        }
+    }
+
+    &__links {
+        display: none;
+
+        @include breakpoint-md {
+            display: block;
+        }
+
+        &__list {
+            display: flex;
+            list-style: none;
+            gap: 16px;
+            align-items: center;
+        }
+    }
+
+    &__item a {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: $font-accent;
+        font-size: 18px;
+        text-decoration: none;
+        color: $black;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            border-bottom: solid 2px $blue-primary;
+            color: $blue-primary;
+        }
+    }
+
+    &__menu img {
+        height: $size-md;
+        object-fit: contain;
+    }
+
+    &__menu {
+        background-color: transparent;
+        border: none;
+
+        @include breakpoint-md {
+            display: none;
+        }
+    }
+
+    &__mobile-menu {
+        display: none;
+
+        &--open {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            background-color: $blue-light;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: $space-l;
+            align-items: center;
+            padding: 0;
+
+            li {
+                font-size: $font-md;
+                font-family: $font-accent;
+
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: $black;
+                }
+            }
+        }
+
+        @include breakpoint-md {
+            display: none;
+        }
+    }
+}

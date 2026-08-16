@@ -1,0 +1,15 @@
+---
+import { about } from "../data/about.json";
+---
+
+<section id="about" class="about">
+    <div class="container about__wrapper">
+        <h2 class="about__title title-h2">
+            {about.title}
+        </h2>
+        <h3 class="about__subtitle title-h3">
+            {about.subtitle}
+        </h3>
+        <p set:html={about.description} class="about__description" />
+    </div>
+</section>
