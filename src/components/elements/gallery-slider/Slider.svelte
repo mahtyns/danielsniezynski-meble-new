@@ -1,4 +1,6 @@
 <script>
+    import { tick } from "svelte";
+
     const total = 12;
     const images = Array.from({ length: total }, (_, i) => ({
         src: `/images/gallery-slider/img${i + 1}.jpg`,
@@ -9,29 +11,49 @@
 
     let currentIndex = 1;
     let withTransition = true;
+    let track;
+    let zoomed = null;
+
+    function isOnClone() {
+        return currentIndex <= 0 || currentIndex >= slides.length - 1;
+    }
 
     function next() {
+        if (isOnClone()) return;
         currentIndex += 1;
     }
 
     function prev() {
+        if (isOnClone()) return;
         currentIndex -= 1;
     }
 
-    function handleTransitionEnd() {
-        if (currentIndex === slides.length - 1) {
-            withTransition = false;
-            currentIndex = 1;
-        } else if (currentIndex === 0) {
-            withTransition = false;
-            currentIndex = slides.length - 2;
-        }
+    async function handleTransitionEnd(event) {
+        if (event.target !== track) return;
+        if (!isOnClone()) return;
+
+        withTransition = false;
+        currentIndex = currentIndex === 0 ? slides.length - 2 : 1;
+
+        await tick();
+        track.getBoundingClientRect();
+        withTransition = true;
     }
 
-    $: if (!withTransition) {
-        requestAnimationFrame(() => (withTransition = true));
+    function openZoom(image) {
+        zoomed = image;
+    }
+
+    function closeZoom() {
+        zoomed = null;
+    }
+
+    function handleKeydown(event) {
+        if (event.key === "Escape" && zoomed) closeZoom();
     }
 </script>
+
+<svelte:window on:keydown={handleKeydown} />
 
 <div class="gallery__slider-inner">
     <button
@@ -57,6 +79,7 @@
 
     <div class="gallery__slider-viewport">
         <div
+            bind:this={track}
             class="gallery__slider-track"
             class:gallery__slider-track--no-transition={!withTransition}
             style="transform: translateX(-{currentIndex * 100}%)"
@@ -64,12 +87,19 @@
         >
             {#each slides as image}
                 <div class="gallery__slider-slide">
-                    <img
-                        class="gallery__slider-img"
-                        src={image.src}
-                        alt={image.alt}
-                        loading="lazy"
-                    />
+                    <button
+                        type="button"
+                        class="gallery__slider-zoom"
+                        on:click={() => openZoom(image)}
+                        aria-label="Powiększ zdjęcie"
+                    >
+                        <img
+                            class="gallery__slider-img"
+                            src={image.src}
+                            alt={image.alt}
+                            loading="lazy"
+                        />
+                    </button>
                 </div>
             {/each}
         </div>
@@ -96,3 +126,18 @@
         </svg>
     </button>
 </div>
+
+{#if zoomed}
+    <button
+        type="button"
+        class="gallery__slider-lightbox"
+        on:click={closeZoom}
+        aria-label="Zamknij powiększenie"
+    >
+        <img
+            class="gallery__slider-lightbox-img"
+            src={zoomed.src}
+            alt={zoomed.alt}
+        />
+    </button>
+{/if}

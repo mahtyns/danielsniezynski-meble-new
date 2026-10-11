@@ -16,13 +16,18 @@
         margin-bottom: $space-l;
 
         &-inner {
+            position: relative;
             display: flex;
             align-items: center;
-            gap: $space-xs;
+
+            @include breakpoint-md {
+                gap: $space-xs;
+            }
         }
 
         &-viewport {
             flex: 1;
+            min-width: 0;
             overflow: hidden;
         }
 
@@ -35,11 +40,19 @@
             }
         }
 
-
         &-slide {
             flex: 0 0 100%;
             scroll-snap-align: start;
             overflow: hidden;
+        }
+
+        &-zoom {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: none;
+            background: none;
+            cursor: zoom-in;
         }
 
         &-img {
@@ -50,8 +63,31 @@
             object-fit: cover;
         }
 
+        &-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: $space-s;
+            border: none;
+            background: rgba(0, 0, 0, 0.92);
+            cursor: zoom-out;
+
+            &-img {
+                display: block;
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        }
+
         &-btn {
-            flex: 0 0 auto;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -59,10 +95,25 @@
             height: $size-lg;
             border-radius: 50%;
             border: 1px solid $gray-dark;
-            background: transparent;
+            background: rgba(255, 255, 255, 0.85);
             color: $black;
             cursor: pointer;
             transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+
+            &--prev {
+                left: $space-xs;
+            }
+
+            &--next {
+                right: $space-xs;
+            }
+
+            @include breakpoint-md {
+                position: static;
+                transform: none;
+                flex: 0 0 auto;
+                background: transparent;
+            }
 
             &:hover:not(:disabled) {
                 border-color: $blue-primary;
