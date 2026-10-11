@@ -90,3 +90,8 @@ section {
         margin: 0 0 $space-s;
     }
 }
+
+html:has(.navbar__mobile-menu--open),
+body:has(.navbar__mobile-menu--open) {
+    overflow: hidden;
+}

@@ -9,7 +9,12 @@ import { seo } from "../data/seo.json";
 import "../styles/styles.scss";
 ---
 
-<Layout title={seo.title}>
+<Layout
+	title={seo.title}
+	description={seo.description}
+	keywords={seo.keywords}
+	canonical={seo.canonical}
+>
 	<main>
 		<Hero />
 		<Intro />
