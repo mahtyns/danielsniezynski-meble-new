@@ -17,6 +17,16 @@
         text-align: center;
         padding: $space-xxs;
         font-size: $font-base;
+
+        p:last-of-type {
+            color: rgba($color: $white, $alpha: 0.7);
+            font-size: 13px;
+
+            a,
+            a:visited {
+                color: rgba($color: $white, $alpha: 0.7);
+            }
+        }
     }
 
     &__logo {
