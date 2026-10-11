@@ -1,54 +1,34 @@
-# Astro Starter Kit: Basics
+# Daniel Śnieżyński – Meble na wymiar
 
-```sh
-npm create astro@latest -- --template basics
+Website for a Warsaw-based custom furniture and woodwork business. It presents the company's offer, a gallery of finished projects and contact details, so potential clients can see the work and get in touch quickly.
+
+**Live site:** https://meblesniezynski.com
+
+## About
+
+The site is a single-page, Polish-language presentation of the business, which makes custom-built furniture (kitchens, wardrobes, walk-in closets, office and non-standard built-ins, wooden and compact HPL worktops and tables) and wooden structures (pergolas, sheds, terraces, facades, fences). It covers Warsaw and the surrounding area.
+
+## Tech stack
+
+- [Astro](https://astro.build)
+- [Svelte](https://svelte.dev) for interactive components (gallery slider)
+- SCSS with BEM-style class naming
+- Static output, with SEO and Open Graph meta tags, favicons and a web manifest
+
+## Getting started
+
+```bash
+npm install
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+| Command           | Action                                      |
+| ----------------- | ------------------------------------------- |
+| `npm install`     | Installs dependencies                       |
+| `npm run dev`     | Starts the dev server at `localhost:4321`   |
+| `npm run build`   | Builds the production site to `./dist/`     |
+| `npm run preview` | Previews the production build locally       |
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Author
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Built by [Martyna Smolarek](https://github.com/mahtyns).
